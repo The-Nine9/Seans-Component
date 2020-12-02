@@ -19,4 +19,15 @@
 
 - Node 14.15.0
 
+## CRUD Operations
+
+- app.post('*/:id/neighborhood_stats', controller.postStat);
+- app.post('*/:id/neighborhood_reviews', controller.postReview);
+- app.get('*/:id/neighborhood_stats', controller.getAllStats);
+- app.get('*/:id/neighborhood_reviews', controller.getAllReviews);
+- app.put('*/:id/neighborhood_stats', controller.putStat);
+- app.put('*/:id/neighborhood_reviews', controller.putReview);
+- app.delete('*/:id/neighborhood_stats', controller.deleteStat);
+- app.delete('*/:id/neighborhood_reviews', controller.deleteReview);
+
 
