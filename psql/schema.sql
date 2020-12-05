@@ -40,13 +40,13 @@ CREATE TABLE users (
 
 CREATE TABLE reviews (
   id INTEGER SERIAL PRIMARY KEY,
-  userid INTEGER NOT NULL,
-  neighborhood_id INTEGER NOT NULL,
   review_date VARCHAR(255) NOT NULL,
   full_text TEXT NOT NULL,
   likes INTEGER NOT NULL,
   community BOOLEAN NOT NULL,
   commute BOOLEAN NOT NULL,
+  user_id INTEGER NOT NULL,
+  neighborhood_id INTEGER NOT NULL,
 
   -- FOREIGN KEY (neighborhood_id)
   --   REFERENCES neighborhoods(id),
