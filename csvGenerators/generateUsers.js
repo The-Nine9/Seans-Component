@@ -1,7 +1,8 @@
 const faker = require('faker');
 const fs = require('fs');
+const path = require('path');
 
-const writeLine = () => `${faker.lorem.word()},Resident,${Math.random() < 0.5},${Math.random() < 0.5}\n`;
+const writeLine = () => `${faker.lorem.word() + ' ' + faker.lorem.word()},Resident,${Math.random() < 0.5},${Math.random() < 0.5}\n`;
 
 function writeTenMillionTimes(writer, encoding, callback) {
   let i = 1000;
@@ -23,7 +24,7 @@ function writeTenMillionTimes(writer, encoding, callback) {
   };
 };
 
-const writeFile = fs.createWriteStream('../csv/listings.csv');
+const writeFile = fs.createWriteStream(path.join(__dirname, '../csv/users.csv'));
 const line1 = 'name,user_type,dog_owner,parent\n';
 writeFile.write(line1);
 

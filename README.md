@@ -19,15 +19,111 @@
 
 - Node 14.15.0
 
-## CRUD Operations
+## Server API
 
-- app.post('*/:id/neighborhood_stats', controller.postStat);
-- app.post('*/:id/neighborhood_reviews', controller.postReview);
-- app.get('*/:id/neighborhood_stats', controller.getAllStats);
-- app.get('*/:id/neighborhood_reviews', controller.getAllReviews);
-- app.put('*/:id/neighborhood_stats', controller.putStat);
-- app.put('*/:id/neighborhood_reviews', controller.putReview);
-- app.delete('*/:id/neighborhood_stats', controller.deleteStat);
-- app.delete('*/:id/neighborhood_reviews', controller.deleteReview);
+### Get Neighborhood info
+  * GET `/api/listing/:id/neighborhood/`
+  * GET `/api/neighborhood/:id/`
+
+**Path Parameters:**
+  * `id` listing id
+  * `id` neighborhood id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "name": "String",
+      "dogFriendly": "Number",
+      "groceryStores": "Number",
+      "neighborsFriendly": "Number",
+      "parkingEasy": "Number",
+      "yard": "Number",
+      "communityEvents": "Number",
+      "sidewalks": "Number",
+      "walkNight": "Number",
+      "fiveYears": "Number",
+      "kidsOutside": "Number",
+      "car": "Number",
+      "restaurants": "Number",
+      "streets": "Number",
+      "holiday": "Number",
+      "quiet": "Number",
+      "wildlife": "Number",
+      "reviews": "Array"
+    }
+```
+
+### Add Neighborhood
+  * POST `/api/neighborhood/:id/`
+
+**Success Status Code:** `201`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "name": "String",
+      "dogFriendly": "Number",
+      "groceryStores": "Number",
+      "neighborsFriendly": "Number",
+      "parkingEasy": "Number",
+      "yard": "Number",
+      "communityEvents": "Number",
+      "sidewalks": "Number",
+      "walkNight": "Number",
+      "fiveYears": "Number",
+      "kidsOutside": "Number",
+      "car": "Number",
+      "restaurants": "Number",
+      "streets": "Number",
+      "holiday": "Number",
+      "quiet": "Number",
+      "wildlife": "Number",
+      "reviews": "Array"
+    }
+```
 
 
+### Update Neighborhood info
+  * PATCH `/api/neighborhood/:id/`
+
+**Path Parameters:**
+  * `id` neighborhood id
+
+**Success Status Code:** `204`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+    {
+      "name": "String",
+      "dogFriendly": "Number",
+      "groceryStores": "Number",
+      "neighborsFriendly": "Number",
+      "parkingEasy": "Number",
+      "yard": "Number",
+      "communityEvents": "Number",
+      "sidewalks": "Number",
+      "walkNight": "Number",
+      "fiveYears": "Number",
+      "kidsOutside": "Number",
+      "car": "Number",
+      "restaurants": "Number",
+      "streets": "Number",
+      "holiday": "Number",
+      "quiet": "Number",
+      "wildlife": "Number",
+      "reviews": "Array"
+    }
+```
+
+### Delete Neighborhood
+  * DELETE `/api/neighborhood/:id/`
+
+**Path Parameters:**
+  * `id` neighborhood id
+
+**Success Status Code:** `204`

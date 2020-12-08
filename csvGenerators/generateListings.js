@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 const writeLine = () => `${Math.floor(Math.random() * 100)}\n`;
 
@@ -22,7 +23,7 @@ function writeTenMillionTimes(writer, encoding, callback) {
   };
 };
 
-const writeFile = fs.createWriteStream('../csv/listings.csv');
+const writeFile = fs.createWriteStream(path.join(__dirname, '../csv/listings.csv'));
 const line1 = 'neighborhood_id\n';
 writeFile.write(line1);
 

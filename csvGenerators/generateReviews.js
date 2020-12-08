@@ -1,11 +1,12 @@
 const faker = require('faker');
 const fs = require('fs');
+const path = require('path');
 
 const num_users = 1000;
 const num_neighborhoods = 100;
 
 const reviewStats = () => {
-  return({
+  return {
     review_date: faker.date.past().toJSON().slice(0, 10),
     full_text: faker.lorem.paragraph(),
     likes: Math.floor(Math.random() * 150) + 1,
@@ -13,7 +14,7 @@ const reviewStats = () => {
     commute: Math.random() < 0.5,
     user_id: Math.floor(Math.random() * num_users) + 1,
     neighborhood_id: Math.floor(Math.random() * num_neighborhoods) + 1
-  });
+  };
 };
 
 const writeLine = (stats) => `${stats.review_date},${stats.full_text},${stats.likes},${stats.community},${stats.commute},${stats.user_id},${stats.neighborhood_id}\n`;
@@ -38,7 +39,7 @@ function writeTenMillionTimes(writer, encoding, callback) {
   };
 };
 
-const writeFile = fs.createWriteStream('../csv/listings.csv');
+const writeFile = fs.createWriteStream(path.join(__dirname, '../csv/reviews.csv'));
 const line1 = 'review_date,full_text,likes,community,commute,user_id,neighborhood_id\n';
 writeFile.write(line1);
 

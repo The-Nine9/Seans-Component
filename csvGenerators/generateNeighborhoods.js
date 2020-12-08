@@ -1,5 +1,6 @@
 const faker = require('faker');
 const fs = require('fs');
+const path = require('path');
 
 const neighborhoodStatsGenerator = function() {
   return {
@@ -45,7 +46,7 @@ function writeTenMillionTimes(writer, encoding, callback) {
   };
 };
 
-const writeFile = fs.createWriteStream('../csv/listings.csv');
+const writeFile = fs.createWriteStream(path.join(__dirname, '../csv/neighborhoods.csv'));
 const line1 = 'name,dog_friendly,grocery_stores,neighbors_friendly,parking_easy,yard,community_events,sidewalks,walk_night,five_years,kids_outside,car,restaurants,streets,holiday,quiet,wildlife\n';
 writeFile.write(line1);
 

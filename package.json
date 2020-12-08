@@ -24,6 +24,7 @@
     "faker": "^5.1.0",
     "jest-enzyme": "^7.1.2",
     "lorem-ipsum": "^2.0.3",
+    "mongoose": "^5.11.5",
     "mysql": "^2.18.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
