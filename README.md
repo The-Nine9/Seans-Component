@@ -7,7 +7,7 @@
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
-1. [Development](#development)
+1. [API](#Server-API)
 
 ## Set-up
 
@@ -19,7 +19,7 @@
 
 - Node 14.15.0
 
-## Server API
+## Server-API
 
 ### Get Neighborhood info
   * GET `/api/listing/:id/neighborhood/`
