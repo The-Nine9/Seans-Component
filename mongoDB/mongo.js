@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb://localhost/mortgage';
+const url = 'mongodb://localhost/SDC';
 
 const connect = () => mongoose.connect(url, { useNewUrlParser: true });
 

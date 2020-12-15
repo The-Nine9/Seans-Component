@@ -49,11 +49,11 @@ class Reviews extends React.Component {
     return (
       <div className={styles.reviews}>
         <div className={styles.reviewsBar}>
-          <span><button id="all" type="button" className={this.state.button === 'all' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onClick={this.handleReviewsClick} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>All</button></span>
-          <span><button type="button" className={this.state.button === 'community' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onClick={this.handleReviewsClick} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>Community</button></span>
-          <span><button type="button" className={this.state.button === 'dog owners' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onClick={this.handleReviewsClick} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>Dog Owners</button></span>
-          <span><button type="button" className={this.state.button === 'parents' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onClick={this.handleReviewsClick} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>Parents</button></span>
-          <span><button type="button" className={this.state.button === 'commute' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onClick={this.handleReviewsClick} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>Commute</button></span>
+          <span><button id="all" type="button" className={this.state.button === 'all' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>All</button></span>
+          <span><button type="button" className={this.state.button === 'community' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>Community</button></span>
+          <span><button type="button" className={this.state.button === 'dog owners' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>Dog Owners</button></span>
+          <span><button type="button" className={this.state.button === 'parents' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>Parents</button></span>
+          <span><button type="button" className={this.state.button === 'commute' ? `${styles.reviewsbtn} ${styles.selectedBtn}` : styles.reviewsbtn} onMouseEnter={this.handleButtonOnHover} onMouseLeave={this.handleButtonOffHover}>Commute</button></span>
         </div>
       </div>
     );

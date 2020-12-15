@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const writeLine = () => `${Math.floor(Math.random() * 100)}\n`;
+const writeLine = () => `${Math.floor(Math.random() * 1000000)}\n`;
 
 function writeTenMillionTimes(writer, encoding, callback) {
-  let i = 1000;
+  let i = 10000000;
   write();
   function write() {
     let ok = true;

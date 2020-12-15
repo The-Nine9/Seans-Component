@@ -5,7 +5,7 @@ const path = require('path');
 const writeLine = () => `${faker.lorem.word() + ' ' + faker.lorem.word()},Resident,${Math.random() < 0.5},${Math.random() < 0.5}\n`;
 
 function writeTenMillionTimes(writer, encoding, callback) {
-  let i = 1000;
+  let i = 10000;
   write();
   function write() {
     let ok = true;

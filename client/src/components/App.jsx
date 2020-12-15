@@ -32,30 +32,50 @@ class App extends React.Component {
     this.toggleGridModal = this.toggleGridModal.bind(this);
   }
 
+  // componentDidMount() {
+  //   axios({
+  //     method: 'get',
+  //     url: `${window.location}neighborhood_reviews`,
+  //   })
+  //     .then((result) => {
+  //       console.log('Get request reviews success');
+  //       this.setState({
+  //         reviewsTotal: result.data.length,
+  //         selectedReviews: result.data,
+  //       });
+  //       axios({
+  //         method: 'get',
+  //         url: `${window.location}neighborhood_stats`,
+  //       })
+  //         .then((res) => {
+  //           console.log('Get request stats success');
+  //           this.setState({
+  //             neighborhoodName: res.data[0].name,
+  //             stats: res.data[0].stats,
+  //           });
+  //         });
+  //     })
+  //     .catch((err) => console.log(err));
+  // }
+
   componentDidMount() {
     axios({
       method: 'get',
-      url: `${window.location}neighborhood_reviews`,
+      url: `${window.location.origin}/api/listing/${window.location.pathname.slice(9)}neighborhood`
     })
-      .then((result) => {
-        console.log('Get request reviews success');
-        this.setState({
-          reviewsTotal: result.data.length,
-          selectedReviews: result.data,
-        });
-        axios({
-          method: 'get',
-          url: `${window.location}neighborhood_stats`,
-        })
-          .then((res) => {
-            console.log('Get request stats success');
-            this.setState({
-              neighborhoodName: res.data[0].name,
-              stats: res.data[0].stats,
-            });
-          });
-      })
-      .catch((err) => console.log(err));
+    .then((res) => {
+      console.log('Neighborhood data recieved');
+      this.setState({
+        neighborhoodName: res.data.name,
+        stats: res.data,
+        selectedReviews: res.data.reviews,
+        reviewsTotal: res.data.reviews.length
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      console.log(`${window.location.origin}/api/listing/${window.location.pathname.slice(9)}/neighborhood`);
+    });
   }
 
   handleSelectedReviews(selectedCategory) {

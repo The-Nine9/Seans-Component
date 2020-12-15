@@ -2,8 +2,8 @@ const faker = require('faker');
 const fs = require('fs');
 const path = require('path');
 
-const num_users = 1000;
-const num_neighborhoods = 100;
+const num_users = 10000;
+const num_neighborhoods = 1000000;
 
 const reviewStats = () => {
   return {
@@ -20,7 +20,7 @@ const reviewStats = () => {
 const writeLine = (stats) => `${stats.review_date},${stats.full_text},${stats.likes},${stats.community},${stats.commute},${stats.user_id},${stats.neighborhood_id}\n`;
 
 function writeTenMillionTimes(writer, encoding, callback) {
-  let i = 1000;
+  let i = 7000000;
   write();
   function write() {
     let ok = true;

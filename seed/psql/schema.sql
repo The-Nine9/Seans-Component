@@ -1,8 +1,5 @@
-DROP DATABASE IF EXISTS neighborhoodReviews;
-CREATE DATABASE neighborhoodReviews;
-
 CREATE TABLE neighborhoods (
-  id INTEGER SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   dog_friendly DECIMAL(3, 2) NOT NULL,
   grocery_stores DECIMAL(3, 2) NOT NULL,
@@ -23,15 +20,12 @@ CREATE TABLE neighborhoods (
 );
 
 CREATE TABLE listings (
-  id INTEGER SERIAL PRIMARY KEY,
-  neighborhood_id INTEGER NOT NULL,
-  -- FOREIGN KEY (neighborhood_id)
-  --   REFERENCES neighborhoods(id)
+  id SERIAL PRIMARY KEY,
+  neighborhood_id INTEGER NOT NULL
 );
 
-
 CREATE TABLE users (
-  id INTEGER SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(30) NOT NULL,
   user_type VARCHAR(30) NOT NULL,
   dog_owner BOOLEAN NOT NULL,
@@ -39,18 +33,12 @@ CREATE TABLE users (
 );
 
 CREATE TABLE reviews (
-  id INTEGER SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   review_date VARCHAR(255) NOT NULL,
   full_text TEXT NOT NULL,
   likes INTEGER NOT NULL,
   community BOOLEAN NOT NULL,
   commute BOOLEAN NOT NULL,
   user_id INTEGER NOT NULL,
-  neighborhood_id INTEGER NOT NULL,
-
-  -- FOREIGN KEY (neighborhood_id)
-  --   REFERENCES neighborhoods(id),
-
-  -- FOREIGN KEY (userid)
-  --   REFERENCES users(id)
+  neighborhood_id INTEGER NOT NULL
 );

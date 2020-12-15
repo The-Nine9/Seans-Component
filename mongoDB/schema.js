@@ -1,10 +1,28 @@
-const mongoose, { Schema } = require('mongoose');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const Listings = mongoose.model('Listings', new Schema({
-  neighborhoodId: { type: Schema.Types.ObjectId, ref: 'Neighborhoods'}
-}));
+const listingsSchema = new Schema({
+  neighborhoodId: String
+}, {
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true
+  }
+});
 
-const Users = mongoose.model('Users', new Schema({
+listingsSchema.virtual('neighborhood', {
+  ref: 'neighborhoods',
+  localField: 'neighborhoodId',
+  foreignField: '_id',
+  justOne: true
+});
+
+const Listings = mongoose.model('listings', listingsSchema);
+
+const Users = mongoose.model('users', new Schema({
+  _id: String,
   name: String,
   userType: String,
   dogOwner: Boolean,
@@ -12,15 +30,30 @@ const Users = mongoose.model('Users', new Schema({
 }));
 
 const reviewsSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: 'Users'},
+  userId: String,
   reviewDate: String,
   fullText: String,
   likes: Number,
   community: Boolean,
   commute: Boolean
+}, {
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true
+  }
 });
 
-const Neighborhoods = mongoose.model('Neighborhoods', new Schema({
+reviewsSchema.virtual('user', {
+  ref: 'users',
+  localField: 'userId',
+  foreignField: '_id',
+  justOne: true
+});
+
+const Neighborhoods = mongoose.model('neighborhoods', new Schema({
+  _id: String,
   name: String,
   dogFriendly: Number,
   groceryStores: Number,

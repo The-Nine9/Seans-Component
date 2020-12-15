@@ -27,7 +27,7 @@ const neighborhoodStatsGenerator = function() {
 const writeLine = (stats) => `${stats.name},${stats.dog_friendly},${stats.grocery_stores},${stats.neighbors_friendly},${stats.parking_easy},${stats.yard},${stats.community_events},${stats.sidewalks},${stats.walk_night},${stats.five_years},${stats.kids_outside},${stats.car},${stats.restaurants},${stats.streets},${stats.holiday},${stats.quiet},${stats.wildlife}\n`;
 
 function writeTenMillionTimes(writer, encoding, callback) {
-  let i = 1000;
+  let i = 1000000;
   write();
   function write() {
     let ok = true;
