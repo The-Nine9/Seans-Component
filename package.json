@@ -27,7 +27,7 @@
     "mongoose": "^5.11.5",
     "mysql": "^2.18.1",
     "newrelic": "^7.0.2",
-    "pg-promise": "^10.8.1",
+    "pg": "^8.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

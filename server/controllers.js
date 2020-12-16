@@ -1,13 +1,13 @@
-const pgp = require('pg-promise')();
+const { Pool } = require('pg');
 
 const cn = {
   host: 'localhost',
   port: 5432,
   database: 'sdc_reviews',
-  max: 40
+  max: 50
 };
 
-const db = pgp(cn);
+const db = new Pool(cn);
 
 const getQuery = async (id) => {
   return (await db.query(`
@@ -31,24 +31,23 @@ const getQuery = async (id) => {
     JOIN users u ON u.id=r.user_id
     WHERE l.id=$1
     GROUP BY n.id;
-  `, id))[0];
+  `, [id])).rows[0];
 };
 
-const postQuery = async (id) => {
-  return (await db.query(`
-    INSERT INTO reviews (review_date, full_text, likes, community, commute, user_id, neighborhood_id) VALUES (date, text, 0, true, true, $1, 1);
-  `, id));
-};
+// const postQuery = async (id) => {
+//   return (await db.query(`
+//     INSERT INTO reviews (review_date, full_text, likes, community, commute, user_id, neighborhood_id) VALUES (date, text, 0, true, true, $1, 1);
+//   `, id));
+// };
 
 module.exports.getNeighborhoodData = async (req, res) => {
-  const id = req.params.id;
-  const data = await getQuery(id);
+  const data = await getQuery(req.params.id);
   // console.log(data);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.json(data);
 };
 
-module.exports.postReview = async (req, res) => {
-  const id = req.params.id;
-  const data = await postQuery;
-};
+// module.exports.postReview = async (req, res) => {
+//   const id = req.params.id;
+//   const data = await postQuery;
+// };

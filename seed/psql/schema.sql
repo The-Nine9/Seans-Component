@@ -42,3 +42,4 @@ CREATE TABLE reviews (
   user_id INTEGER NOT NULL,
   neighborhood_id INTEGER NOT NULL
 );
+
